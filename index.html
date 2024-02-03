@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-image: url("heart.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 200px;
+      }
+      .row {
+        display: flex;
+      }
+      #maleBear {
+        transform: scaleX(-1);
+        margin-right: 100px;
+      }
+      #congratulations {
+        display: none;
+      }
+      .box {
+        background-color: hsla(255, 90%, 90%, 0.8);
+        padding: 10px;
+        border: 1px solid hsla(255, 90%, 90%, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <img
+          id="maleBear"
+          src="male_bear.png"
+          height="300"
+          width="200"
+          alt="Male Bear"
+        />
+        <img
+          id="femaleBear"
+          height="240"
+          width="220"
+          src="female_bear.gif"
+          alt="Female Bear"
+          draggable="true"
+        />
+      </div>
+      <div>
+        <p class="box">
+          My dear Bubu, your beautiful eyes have mesmerized me. Will you be my
+          valentine?
+        </p>
+        <p class="box"><strong>Drag Bubu to Dudu to say Yes.</strong></p>
+      </div>
+
+      <div id="congratulations">Yay. It's a date!</div>
+    </div>
+
+    <script>
+      let bubu = document.querySelector("#femaleBear");
+      bubu.addEventListener("dragstart", function () {
+        console.log("dragstarted");
+      });
+
+      let dudu = document.querySelector("#maleBear");
+      console.log(dudu);
+
+      dudu.addEventListener("dragover", function (e) {
+        document.getElementById("congratulations").style.display = "block";
+      });
+    </script>
+  </body>
+</html>
